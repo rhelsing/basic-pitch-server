@@ -16,8 +16,8 @@ basic_pitch_model = tf.saved_model.load(str(ICASSP_2022_MODEL_PATH))
 app = Flask(__name__)
 
 # APP USAGE:
-# flask run --with-threads
-# curl -F 'f=@example.wav' http://127.0.0.1:5000/upload
+# flask run --with-threads --host=0.0.0.0
+# curl -F 'f=@example.wav' 10.0.0.124:5000/upload
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
