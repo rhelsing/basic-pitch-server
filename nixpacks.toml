@@ -5,6 +5,5 @@ aptPkgs = ["..."]
 [phases.build]
 cmds = ["echo start build", "...", "echo done build"]
 
-
 [start]
-cmds = ["echo server start", "waitress-serve --port=80 --call app:create_app"]
+cmd = "waitress-serve --port=80 --call app:create_app"
