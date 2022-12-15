@@ -6,6 +6,7 @@ import random
 from flask import Flask
 from flask import request
 from flask import jsonify
+from waitress import serve
 
 import tensorflow as tf
 from basic_pitch.inference import predict
@@ -50,5 +51,4 @@ def upload_file():
 def index():
     return "<h1>Hello!</h1>"
 
-def create_app():
-   return app
+serve(app, host='0.0.0.0', port=os.getenv('PORT'))
