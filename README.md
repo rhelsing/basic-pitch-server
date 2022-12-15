@@ -11,3 +11,11 @@ curl -F 'f=@example_wav/example.wav' localhost/upload
 flask run --with-threads --host=0.0.0.0 --port=$PORT
 
 <!-- try this if it doesnt work -->
+
+
+<!-- wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.34.tar.gz
+tar -zxvf glibc-2.34.tar.gz
+cd glibc-2.34
+./configure --prefix=/opt/glibc
+make
+make install -->
