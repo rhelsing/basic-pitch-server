@@ -1,5 +1,7 @@
 [phases.setup]
-aptPkgs = ["...", "wget", "libsndfile1-dev"]
+providers = ["...", "python"]
+nixPkgs = ["...", "ffmpeg"] # Install the ffmpeg package from Nix
+aptPkgs = ["...", "wget"]   # Install the wget package with apt-get
 
 [phases.build]
 cmds = ["echo start build", "...", "echo done build"]
