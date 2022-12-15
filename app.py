@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 # APP USAGE:
 # flask run --with-threads --host=0.0.0.0
-# curl -F 'f=@example.wav' 10.0.0.124:5000/upload
+# curl -F 'f=@example_wav/example.wav' 10.0.0.124:5000/upload
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -45,3 +45,10 @@ def upload_file():
       os.remove(m)
 
     return jsonify(d)
+
+@app.route("/")
+def index():
+    return "<h1>Hello!</h1>"
+
+def create_app():
+   return app
