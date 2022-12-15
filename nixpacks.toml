@@ -6,4 +6,4 @@ aptPkgs = ["..."]
 cmds = ["echo start build", "...", "echo done build"]
 
 [start]
-cmd = "waitress-serve --port=80 --call app:create_app"
+cmd = "waitress-serve --listen=0.0.0.0:$PORT --call app:create_app"
