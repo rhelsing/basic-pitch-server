@@ -8,7 +8,7 @@ from flask import request
 from flask import jsonify
 from waitress import serve
 
-# import tensorflow as tf
+import tensorflow as tf
 # from basic_pitch.inference import predict
 # from basic_pitch import ICASSP_2022_MODEL_PATH
 
