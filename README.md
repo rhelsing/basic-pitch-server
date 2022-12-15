@@ -1,6 +1,6 @@
 # APP USAGE:
 
-flask run --with-threads --host=0.0.0.0
+flask run --with-threads --host=0.0.0.0 --port=$PORT
 curl -F 'f=@example.wav' 10.0.0.124:5000/upload
 
 
