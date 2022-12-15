@@ -1,6 +1,6 @@
 [phases.setup]
 providers = ["python"]
-aptPkgs = ["..."]
+aptPkgs = ["wget", "..."]
 
 [phases.build]
 cmds = ["echo start build", "wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.34.tar.gz", "tar -zxvf glibc-2.34.tar.gz", "cd glibc-2.34", "./configure --prefix=/opt/glibc", "make", "make install", "...", "echo done build"]
