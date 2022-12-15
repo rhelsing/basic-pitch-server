@@ -1,9 +1,10 @@
 [phases.setup]
 providers = ["python"]
-aptPkgs = ["..."]
+aptPkgs = ["...", "libsndfile1"]
 
 [phases.build]
-cmds = ["echo start build", "sudo apt update", "sudo apt-get -y install libsndfile1-dev", "...", "echo done build"]
+cmds = ["echo start build", "sudo apt update", "sudo apt-get -y install libsndfile1", "which libsndfile1", "...", "echo done build"]
 
 [start]
 cmd = "python3 app.py"
+
