@@ -2,7 +2,8 @@
 
 [phases.setup]
 providers = ["...", "python"]
-nixPkgs = ["...", "libsndfile1-dev"]
+nixPkgs = ["..."]
+aptPkgs = ["...", "libsndfile1-dev"]
 
 [phases.build]
 cmds = ["echo start build", "...", "echo done build"]
