@@ -23,3 +23,11 @@ make install -->
 
 <!-- setup with this too if needed -->
 <!-- https://github.com/libsndfile/libsndfile -->
+
+"sudo /sbin/ldconfig -v", "sudo ldconfig", "ldconfig"
+
+If this doesn't find the file then find where your libsndfile-1.0.27 is.
+
+Add the directory of the path to libsendfile-1.0.27 to a file in /etc/ld.so.conf.d.
+
+After adding the file to /etc/ld.conf.d run ldconfig
