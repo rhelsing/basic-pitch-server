@@ -19,3 +19,7 @@ cd glibc-2.34
 ./configure --prefix=/opt/glibc
 make
 make install -->
+
+
+<!-- setup with this too if needed -->
+<!-- https://github.com/libsndfile/libsndfile -->
