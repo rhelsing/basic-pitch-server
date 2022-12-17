@@ -1,6 +1,6 @@
 [phases.setup]
 providers = ["...", "python"]
-nixPkgs = ["...", "python39Packages.pysoundfile"]
+nixPkgs = ["...", "libsndfile", "python39Packages.pysoundfile"]
 
 [phases.build]
 cmds = ["echo start build", "...", "echo done build"]
