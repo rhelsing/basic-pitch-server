@@ -1,4 +1,4 @@
-# buildImage = 'ghcr.io/railwayapp/nixpacks:latest'
+buildImage = 'ghcr.io/railwayapp/nixpacks:ubuntu-1671044363'
 
 [phases.setup]
 providers = ["...", "python"]
@@ -6,7 +6,7 @@ nixPkgs = ["..."]
 aptPkgs = ["...", "libsndfile1-dev"]
 
 [phases.build]
-cmds = ["echo start build", "...", "echo done build"]
+cmds = ["echo start build", "...", "sudo apt-get install libsndfile1-dev", "echo done build"]
 
 [start]
 cmd = "python3 app.py"
