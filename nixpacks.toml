@@ -1,6 +1,8 @@
+# buildImage = 'ghcr.io/railwayapp/nixpacks:latest'
+
 [phases.setup]
 providers = ["...", "python"]
-nixPkgs = ["...", "libsndfile", "python39Packages.pysoundfile"]
+nixPkgs = ["...", "libsndfile1-dev"]
 
 [phases.build]
 cmds = ["echo start build", "...", "echo done build"]
