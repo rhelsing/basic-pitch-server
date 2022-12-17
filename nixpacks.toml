@@ -1,7 +1,7 @@
 buildImage = 'ghcr.io/railwayapp/nixpacks:ubuntu-1671044363'
 
 [phases.setup]
-providers = ["...", "python"]
+providers = ["...", "python", "python39Packages.pysoundfile"]
 nixPkgs = ["..."]
 aptPkgs = ["...", "libsndfile1-dev", "libsndfile1"]
 
