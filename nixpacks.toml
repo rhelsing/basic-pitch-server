@@ -6,7 +6,7 @@ nixPkgs = ["..."]
 aptPkgs = ["...", "libsndfile1-dev", "libsndfile1"]
 
 [phases.build]
-cmds = ["echo start build", "...", "sudo apt-get install libsndfile1-dev", "sudo apt-get install libsndfile1", "xport LD_LIBRARY_PATH=/usr/local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}", "ldconfig", "sudo ldconfig", "sudo ldconfig -p | grep libsndfile.so", "ldconfig -p | grep libsndfile.so", "echo $LD_LIBRARY_PATH", "ls /opt/lib", "ls /etc/ld.so.conf.d", "sudo cp /lib/x86_64-linux-gnu/libsndfile.so /opt/lib/libsndfile.so", "sudo ldconfig", "ldconfig", "sudo cp /lib/x86_64-linux-gnu/libsndfile.so /opt/venv/lib/python3.9/site-packages/_soundfile_data/libsndfile.so", "echo done build"]
+cmds = ["echo start build", "...", "sudo apt-get install libsndfile1-dev", "sudo apt-get install libsndfile1", "export LD_LIBRARY_PATH=/usr/local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}", "ldconfig", "sudo ldconfig", "sudo ldconfig -p | grep libsndfile.so", "ldconfig -p | grep libsndfile.so", "echo $LD_LIBRARY_PATH", "ls /opt/lib", "ls /etc/ld.so.conf.d", "sudo cp /lib/x86_64-linux-gnu/libsndfile.so /opt/lib/libsndfile.so", "sudo ldconfig", "ldconfig", "sudo cp /lib/x86_64-linux-gnu/libsndfile.so /opt/venv/lib/python3.9/site-packages/_soundfile_data/libsndfile.so", "echo done build"]
 
 [start]
 cmd = "python3 app.py"
