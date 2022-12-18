@@ -37,3 +37,6 @@ After adding the file to /etc/ld.conf.d run ldconfig
 
 
 /etc/ld.so.conf.d
+
+
+/usr/lib:

@@ -6,7 +6,7 @@ nixPkgs = ["..."]
 aptPkgs = ["...", "libsndfile1-dev", "libsndfile1"]
 
 [phases.build]
-cmds = ["echo start build", "...", "sudo apt-get install libsndfile1-dev", "sudo apt-get install libsndfile1", "export LD_LIBRARY_PATH=/usr/local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}", "export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH", "ldconfig", "sudo ldconfig", "echo why doesnt it work", "echo $LD_LIBRARY_PATH", "ls /etc/ld.so.conf.d", "echo done build"]
+cmds = ["echo start build", "...", "sudo apt-get install libsndfile1-dev", "sudo apt-get install libsndfile1", "ldconfig", "sudo ldconfig", "echo why doesnt it work", "echo $LD_LIBRARY_PATH", "ls /etc/ld.so.conf.d", "cat /etc/ld.so.conf.d/libc.conf", "cat /etc/ld.so.conf.d/x86_64-linux-gnu.conf", "echo done build"]
 
 [start]
 cmd = "python3 app.py"
