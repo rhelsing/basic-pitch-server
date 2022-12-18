@@ -31,3 +31,9 @@ If this doesn't find the file then find where your libsndfile-1.0.27 is.
 Add the directory of the path to libsendfile-1.0.27 to a file in /etc/ld.so.conf.d.
 
 After adding the file to /etc/ld.conf.d run ldconfig
+
+
+/lib/x86_64-linux-gnu/
+
+
+/etc/ld.so.conf.d
