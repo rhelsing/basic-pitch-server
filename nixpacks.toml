@@ -1,7 +1,7 @@
 buildImage = 'ghcr.io/railwayapp/nixpacks:ubuntu-1671044363'
 
 [variables]
-LD_LIBRARY_PATH = /lib/x86_64-linux-gnu/:/usr/local/bin:/usr/lib/
+LD_LIBRARY_PATH = '/lib/x86_64-linux-gnu/:/usr/local/bin:/usr/lib/'
 
 [phases.setup]
 providers = ["...", "python"]
