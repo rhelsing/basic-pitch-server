@@ -29,7 +29,7 @@ def upload_file():
     p = 'uploads/'+file_name+'.wav'
 
     if not os.path.exists("uploads"):
-      os.makedirs(path)
+      os.makedirs("uploads")
 
     f.save(p)
     model_output, midi_data, note_activations = predict(
@@ -38,7 +38,7 @@ def upload_file():
     )
 
     if not os.path.exists("saved_midi"):
-      os.makedirs(path)
+      os.makedirs("saved_midi")
 
     m = 'saved_midi/'+file_name+'.mid'
     midi_data.write(m)
