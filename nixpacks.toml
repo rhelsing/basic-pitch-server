@@ -1,12 +1,15 @@
 buildImage = 'ghcr.io/railwayapp/nixpacks:ubuntu-1671044363'
 
+[variables]
+LD_LIBRARY_PATH = /lib/x86_64-linux-gnu/:/usr/local/bin:/usr/lib/
+
 [phases.setup]
-providers = ["...", "python", "python39Packages.pysoundfile"]
+providers = ["...", "python"]
 nixPkgs = ["..."]
 aptPkgs = ["...", "libsndfile1-dev", "libsndfile1"]
 
 [phases.build]
-cmds = ["echo start build", "...", "sudo apt-get install libsndfile1-dev", "sudo apt-get install libsndfile1", "ldconfig", "sudo ldconfig", "echo why doesnt it work", "echo $LD_LIBRARY_PATH", "ls /etc/ld.so.conf.d", "cat /etc/ld.so.conf.d/libc.conf", "cat /etc/ld.so.conf.d/x86_64-linux-gnu.conf", "echo done build"]
+cmds = ["echo start build", "...", "echo done build"]
 
 [start]
 cmd = "python3 app.py"
