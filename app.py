@@ -27,11 +27,19 @@ def upload_file():
     letters = string.ascii_lowercase
     file_name = ''.join(random.choice(letters) for i in range(10))
     p = 'uploads/'+file_name+'.wav'
+
+    if not os.path.exists("uploads"):
+      os.makedirs(path)
+
     f.save(p)
     model_output, midi_data, note_activations = predict(
       p,
       basic_pitch_model,
     )
+
+    if not os.path.exists("saved_midi"):
+      os.makedirs(path)
+
     m = 'saved_midi/'+file_name+'.mid'
     midi_data.write(m)
     midi_file = open(m,"rb")
