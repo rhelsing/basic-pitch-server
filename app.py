@@ -33,9 +33,20 @@ def upload_file():
 
     f.save(p)
     model_output, midi_data, note_activations = predict(
-      p,
-      basic_pitch_model,
+      audio_path=p,
+      model_or_model_path=basic_pitch_model,
+      onset_threshold = 0.3,
+      frame_threshold = 0.5,
+      minimum_note_length = 158,
+      minimum_frequency = 200.0,
+      maximum_frequency = 5000.0,
     )
+
+    # onset-threshold - lower a -default=0.5,
+    # frame-threshold - longer =0.3
+    # minimum-note-length - in ms 58
+    # minimum-frequency in hz
+    # maximum-frequency in hz
 
     if not os.path.exists("saved_midi"):
       os.makedirs("saved_midi")
