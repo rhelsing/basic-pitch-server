@@ -18,15 +18,24 @@ app = Flask(__name__)
 
 # APP USAGE:
 # flask run --with-threads --host=0.0.0.0
-# curl -F 'f=@example_wav/example.wav' 10.0.0.124:5000/upload
+# curl  -F api_key=XXXXX -F 'f=@example_wav/example.wav' 10.0.0.124:5000/upload
 
-@app.route('/upload', methods=['GET', 'POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
   if request.method == 'POST':
     f = request.files['f']
     letters = string.ascii_lowercase
     file_name = ''.join(random.choice(letters) for i in range(10))
     p = 'uploads/'+file_name+'.wav'
+
+    if request.form.get('api_key') != os.getenv('API_KEY'):
+      return "<h1>Error</h1>"
+
+    onset_threshold = request.form.get('onset_threshold')
+    frame_threshold = request.form.get('frame_threshold')
+    minimum_note_length = request.form.get('minimum_note_length')
+    minimum_frequency = request.form.get('minimum_frequency')
+    maximum_frequency = request.form.get('maximum_frequency')
 
     if not os.path.exists("uploads"):
       os.makedirs("uploads")
@@ -35,11 +44,11 @@ def upload_file():
     model_output, midi_data, note_activations = predict(
       audio_path=p,
       model_or_model_path=basic_pitch_model,
-      onset_threshold = 0.3,
-      frame_threshold = 0.5,
-      minimum_note_length = 158,
-      minimum_frequency = 200.0,
-      maximum_frequency = 5000.0,
+      onset_threshold = (onset_threshold or 0.3),
+      frame_threshold = (frame_threshold or 0.5),
+      minimum_note_length = (minimum_note_length or 158),
+      minimum_frequency = (minimum_frequency or 200.0),
+      maximum_frequency = (maximum_frequency or 5000.0),
     )
 
     # onset-threshold - lower a -default=0.5,
