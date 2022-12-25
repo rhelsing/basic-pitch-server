@@ -35,7 +35,7 @@ def upload_file():
     if onset_threshold != None:
       onset_threshold = float(onset_threshold)
     frame_threshold = request.form.get('frame_threshold')
-    if frame_threshold! = None:
+    if frame_threshold != None:
       frame_threshold = float(frame_threshold)
     minimum_note_length = request.form.get('minimum_note_length')
     if minimum_note_length != None:
