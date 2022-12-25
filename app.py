@@ -32,10 +32,20 @@ def upload_file():
       return "<h1>Error</h1>"
 
     onset_threshold = request.form.get('onset_threshold')
+    if onset_threshold != None:
+      onset_threshold = float(onset_threshold)
     frame_threshold = request.form.get('frame_threshold')
+    if frame_threshold! = None:
+      frame_threshold = float(frame_threshold)
     minimum_note_length = request.form.get('minimum_note_length')
+    if minimum_note_length != None:
+      minimum_note_length = float(minimum_note_length)
     minimum_frequency = request.form.get('minimum_frequency')
+    if minimum_frequency != None:
+      minimum_frequency = float(minimum_frequency)
     maximum_frequency = request.form.get('maximum_frequency')
+    if maximum_frequency != None:
+      maximum_frequency = float(maximum_frequency)
 
     if not os.path.exists("uploads"):
       os.makedirs("uploads")
@@ -44,11 +54,11 @@ def upload_file():
     model_output, midi_data, note_activations = predict(
       audio_path=p,
       model_or_model_path=basic_pitch_model,
-      onset_threshold = (onset_threshold or 0.3),
-      frame_threshold = (frame_threshold or 0.5),
-      minimum_note_length = (minimum_note_length or 158),
+      onset_threshold = (onset_threshold or 0.6),
+      frame_threshold = (frame_threshold or 0.4),
+      minimum_note_length = (minimum_note_length or 100),
       minimum_frequency = (minimum_frequency or 200.0),
-      maximum_frequency = (maximum_frequency or 5000.0),
+      maximum_frequency = (maximum_frequency or 8000.0),
     )
 
     # onset-threshold - lower a -default=0.5,
