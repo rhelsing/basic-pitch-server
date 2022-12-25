@@ -39,7 +39,7 @@ def upload_file():
       frame_threshold = float(frame_threshold)
     minimum_note_length = request.form.get('minimum_note_length')
     if minimum_note_length != None:
-      minimum_note_length = float(minimum_note_length)
+      minimum_note_length = int(minimum_note_length)
     minimum_frequency = request.form.get('minimum_frequency')
     if minimum_frequency != None:
       minimum_frequency = float(minimum_frequency)
