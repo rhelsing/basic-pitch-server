@@ -1,5 +1,7 @@
 # APP USAGE:
 
+cog push r8.im/rhelsing/basic-pitch
+
 flask run --with-threads --host=0.0.0.0 --port=$PORT
 curl -F 'f=@example.wav' 10.0.0.124:5000/upload
 

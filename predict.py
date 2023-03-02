@@ -5,7 +5,6 @@ from basic_pitch import ICASSP_2022_MODEL_PATH
 
 import os
 import string
-import random
 
 class Predictor(BasePredictor):
     def setup(self):
@@ -14,7 +13,7 @@ class Predictor(BasePredictor):
 
     def predict(
         self,
-        audio_file: Path = Input(description="Wav file"),
+        audio_file: Path = Input(description="Audio file"),
         # scale: float = Input(description="Factor to scale image by", ge=0, le=10, default=1.5),
     ) -> Path:
         """Run a single prediction on the basic_pitch model"""
@@ -27,7 +26,7 @@ class Predictor(BasePredictor):
         maximum_frequency = None
 
         model_output, midi_data, note_activations = predict(
-          audio_path=p,
+          audio_path=audio_file,
           model_or_model_path=self.model,
           onset_threshold = (onset_threshold or 0.6),
           frame_threshold = (frame_threshold or 0.4),
@@ -40,8 +39,7 @@ class Predictor(BasePredictor):
         if not os.path.exists("saved_midi"):
           os.makedirs("saved_midi")
 
-        letters = string.ascii_lowercase
-        file_name = ''.join(random.choice(letters) for i in range(10))
+        file_name = 'transcribed'
         m = 'saved_midi/'+file_name+'.mid'
         midi_data.write(m)
         return Path(m)
