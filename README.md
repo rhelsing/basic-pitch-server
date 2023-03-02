@@ -40,3 +40,24 @@ After adding the file to /etc/ld.conf.d run ldconfig
 
 
 /usr/lib:
+
+
+
+
+
+You also need to define the inputs to your model as arguments to the predict() function, as demonstrated above. For each argument, you need to annotate with a type. The supported types are:
+
+    str: a string
+    int: an integer
+    float: a floating point number
+    bool: a boolean
+    cog.File: a file-like object representing a file
+    cog.Path: a path to a file on disk
+
+You can provide more information about the input with the Input() function, as shown above. It takes these basic arguments:
+
+    description: A description of what to pass to this input for users of the model
+    default: A default value to set the input to. If this argument isn't passed, then the input is required. If it's explicitly set to None, the input is optional.
+    ge: For int or float types, the value should be greater than or equal to this number.
+    le: For int or float types, the value should be less than or equal to this number.
+    choices: For str or int types, a list of possible values for this input.
